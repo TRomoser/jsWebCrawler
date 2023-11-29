@@ -2,6 +2,8 @@ const { load } = require("cheerio");
 const fs = require("fs/promises")
 const os = require("os")
 
+const baseUrl = "";
+
 const crawlPage = async (pageURL) => {
     const response = await fetch(pageURL);
     const html = await response.text();
@@ -34,7 +36,7 @@ const crawlSite = async () => {
         console.log(`Elapsed time: ${formatTime(elapsedTime)}`);
     }, 10000);
 
-    const pagesToCrawl = ["https://scrapeme.live/shop"];
+    const pagesToCrawl = [baseUrl];
     const pagesCrawled = new Set(); // Use a Set for efficient lookup
     const discoveredURLs = new Set();
 
